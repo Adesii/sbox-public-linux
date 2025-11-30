@@ -2,6 +2,9 @@
 # Linux
 Hi, this is a fork of sbox-public it has minimal changes to source code and is mostly just here to make it easier to compile sbox-public with wine as there are some issues if you just pull sbox-public and use the `./Bootstrap.bat`
 
+### Steam version Recommendations:
+- install the dotnet sdk in your protonprefix for your editor and sbox prefix. otherwise opening a project will create a Z: directory in your libraries and code paths if your project and sbox installation are on different drives. **THIS IS EXTREMELY BAD IF YOU PLAN ON DELETING A LIBRARY, IT WILL WIPE YOUR LINUX SYSTEM** somewhat. it will recursely delete the Library if it comes across a Z: path its gonna loop back to your root filesystem / which basically means rm rf /
+
 ### Steps:
 - clone this repository
 - open a normal linux terminal of your choice in this folder
