@@ -23,15 +23,16 @@ internal class BuildManaged( string name, bool clean = false ) : Step( name )
 			}
 
 			Log.Info( "Step 2: Dotnet Restore" );
-			if ( !Utility.RunDotnetCommand( engineDir, "restore" ) )
-				return ExitCode.Failure;
+			//Log.Info( "Please run Dotnet Restore manually in your linux terminal instead of through wine in "+engineDir+" " );
+			//if ( !Utility.RunDotnetCommand( engineDir, "restore" ) )
+			//	return ExitCode.Failure;
 
 			Log.Info( "Step 3: Build CodeGen.exe" );
-			if ( !Utility.RunDotnetCommand( engineDir, "build Tools/CodeGen/ -o Tools/CodeGen/bin" ) )
+			if ( !Utility.RunDotnetCommand( engineDir, "build --no-restore Tools/CodeGen/ -o Tools/CodeGen/bin" ) )
 				return ExitCode.Failure;
 
 			Log.Info( "Step 3a: Build CreateGameCache.exe" );
-			if ( !Utility.RunDotnetCommand( engineDir, "build Tools/CreateGameCache/ -o Tools/CreateGameCache/bin" ) )
+			if ( !Utility.RunDotnetCommand( engineDir, "build --no-restore Tools/CreateGameCache/ -o Tools/CreateGameCache/bin" ) )
 				return ExitCode.Failure;
 
 			Log.Info( "Step 4: Clear managed folder" );
@@ -57,7 +58,7 @@ internal class BuildManaged( string name, bool clean = false ) : Step( name )
 			}
 
 			Log.Info( "Step 5: Build Managed" );
-			if ( !Utility.RunDotnetCommand( engineDir, "build -c Release Sandbox-Engine.slnx -p:TreatWarningsAsErrors=true" ) )
+			if ( !Utility.RunDotnetCommand( engineDir, "build --no-restore -c Release Sandbox-Engine.slnx -p:TreatWarningsAsErrors=true" ) )
 				return ExitCode.Failure;
 
 			Log.Info( "Build completed successfully!" );

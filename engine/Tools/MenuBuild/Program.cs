@@ -36,6 +36,7 @@ class Program
 		{
 			var bytes = project.AssemblyFileSystem.ReadAllBytes( assembly ).ToArray();
 			var outputPath = Path.Combine( project.GetRootPath(), assembly );
+			Console.WriteLine( $"Copying from {outputPath}" );
 			System.IO.Directory.CreateDirectory( Path.GetDirectoryName( outputPath ) );
 			System.IO.File.WriteAllBytes( outputPath, bytes );
 		}

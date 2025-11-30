@@ -1,3 +1,28 @@
+
+# Linux
+Hi, this is a fork of sbox-public it has minimal changes to source code and is mostly just here to make it easier to compile sbox-public with wine as there are some issues if you just pull sbox-public and use the `./Bootstrap.bat`
+
+### Steps:
+- clone this repository
+- open a normal linux terminal of your choice in this folder
+- run `./restore.fish` in here using your linux shell (or the commands inside of this file inside of this folder)
+- wait for it to be done (or rather error out. this is expected)
+- open a wine cmd in this folder using winetricks
+- run `./Bootstrap.bat` in your wine environment
+- run winetricks again and select "run an arbitrary executable". or just double click the `sbox-dev.exe` whatever you prefer
+
+you might need to copy your wineprefix's dotnet installation into your linux dotnet installation for the dll's to be available inside of wine. idk why but it seems the environment variables are wonky inside of wine. Could maybe also set `DOTNET_ROOT` environment variable inside of your wine cmd to fix it. but this needs testing
+### Notes
+if any issues arise please dm me on discord (adesi)
+its very likely you'll run into issues with this method as from the few times others have tried to replicate my method it didn't work for them.
+
+i want to figure out why it works on my system and not on others. Give a detailed report of the errors you encountered and i'll try to help you fix them and update the steps needed
+
+notes about my system:
+i run cachyos,i installed dotnet sdk 10 in both my wineprefix and my normal linux system. i copied over the wineprefix dotnet installation into my linux dotnet folder due to the dotnet_root being wonky inside of wine.
+##
+
+# Original readme:
 <div align="center">
   <img src="https://sbox.game/img/sbox-logo-square.svg" width="80px" alt="s&box logo">
 

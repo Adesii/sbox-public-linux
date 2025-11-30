@@ -1,13 +1,10 @@
 
 <Project>
 
-	<PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+	<PropertyGroup>
 		<CodeGeneratorExe Condition="'$(CodeGeneratorExe)' == ''">..\\Tools\\CodeGen\\bin\\CodeGen.exe</CodeGeneratorExe>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
-        <CodeGeneratorExe Condition="'$(CodeGeneratorExe)' == ''">../Tools/CodeGen/bin/CodeGen</CodeGeneratorExe>
-    </PropertyGroup>
 
 	<Target Name="CleanCodeGen" AfterTargets="Clean">
 		<RemoveDir Directories="obj/.generated" />

@@ -101,3 +101,7 @@ engine/TestResults/
 /game/tools
 /game/aftermath_dumps
 /game/gamecache
+
+
+#Linux Build
+!restore.fish
